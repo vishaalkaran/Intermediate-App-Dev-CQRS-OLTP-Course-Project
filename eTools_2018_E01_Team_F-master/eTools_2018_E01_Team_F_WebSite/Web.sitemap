@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="root menu">
+    <!--Not seen but starts a menu-->
+    <!--These are individual menu nodes (no drop down). Note they are self closing -->
+    <siteMapNode url="~/Default.aspx" title="Home"  description="home page" />
+    <siteMapNode url="~/Contact.aspx" title="Contact"  description="Contact page" />
+    <siteMapNode url="~/About.aspx" title="About"  description="About page" />
+    <siteMapNode url="~/Security/UserRoleAdmin.aspx" title="UserRoleAdmin"  description="UserRoleAdmin page" />
+
+ 
+
+    <!--This starts a drop down list of menu nodes-->
+    <siteMapNode url="" title="Purchasing" description="Purchasing Page David">
+      <siteMapNode url="~/TeamF/Purchasing/Place.aspx" title="Purchasing"  description="Purchasing Page David" />
+    </siteMapNode>
+    <siteMapNode url="" title="Receiving" description="Receiving Page Alex">
+      <siteMapNode url="~/TeamF/Receiving/ForceClose.aspx" title="Receiving"  description="Receiving Page Alex" />
+    </siteMapNode>
+    <siteMapNode url="" title="Sales" description="Sales Page Raman">
+      <siteMapNode url="~/TeamF/Sales/CheckOut.aspx" title="Sales"  description="Sales Page Raman" />
+    </siteMapNode>    
+    <siteMapNode url="" title="Rental" description="Rental Page Vincent">
+      <siteMapNode url="~/TeamF/Rentals/Rental.aspx" title="Rental"  description="Rental Page Vincent" />
+      <siteMapNode url="~/TeamF/Rentals/Return.aspx" title="Return"  description="Return Page Vincent" />
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>
