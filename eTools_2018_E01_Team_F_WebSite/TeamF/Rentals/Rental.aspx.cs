@@ -27,7 +27,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack)Fijir
             {
                 //if (!IsPostBack)
                 //{
