@@ -267,7 +267,7 @@
 
     <asp:ObjectDataSource ID="CustomerReturnDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="customersReturnLookUp" TypeName="eToolsSystem.BLL.RentalCustomerController">
         <SelectParameters>
-            <asp:ControlParameter ControlID="PhoneNumberInput" PropertyName="Text" DefaultValue="" Name="clientPhoneNumberOrRentalID" Type="String"></asp:ControlParameter>
+            <asp:ControlParameter ControlID="PhoneNumberInput" PropertyName="Text" Name="clientPhoneNumberOrRentalID" Type="String"></asp:ControlParameter>
         </SelectParameters>
     </asp:ObjectDataSource>
 

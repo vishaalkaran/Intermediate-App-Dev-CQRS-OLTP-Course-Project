@@ -78,6 +78,8 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     RentalCustomerController mgr = new RentalCustomerController();
                     Customer customer = mgr.selectSingleCustomer(int.Parse(e.CommandArgument.ToString()));
 
+                    //customer = mgr.customersReturnLookUp
+
                     selectedCustomerRental.Text = e.CommandArgument.ToString();
                     HIDDEN_LABEL_selectedCustomerID.Text = customer.CustomerID.ToString();
                     PhoneNumberInput.Text = customer.ContactPhone;

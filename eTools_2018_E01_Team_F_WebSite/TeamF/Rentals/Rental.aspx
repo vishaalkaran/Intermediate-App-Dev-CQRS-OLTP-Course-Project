@@ -32,8 +32,7 @@
             <asp:Label ID="selectedCustomerRental" runat="server" style="text-align: right;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="newRental" runat="server" visible="false" OnClick="newRental_Click ">New Rental</asp:LinkButton>
 
-            <%--This is hidden, internal use--%>
-            <asp:Label ID="HIDDEN_LABEL_selectedCustomerID" runat="server" Visible="false"></asp:Label>
+            &nbsp;<%--This is hidden, internal use--%><asp:Label ID="HIDDEN_LABEL_selectedCustomerID" runat="server" Visible="false"></asp:Label>
         </div>
         <br/><br/>
         <%--Phone number/ customer slection row--%>
