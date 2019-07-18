@@ -95,7 +95,6 @@ namespace eToolsSystem.BLL
                                                                                                                                                         })
                                                                                                                 }).FirstOrDefault();
 
-
                     //The.find(...) returns an entity based on...ID
 
                     //DTO

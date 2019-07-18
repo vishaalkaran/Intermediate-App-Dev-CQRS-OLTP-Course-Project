@@ -55,7 +55,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             {
                 if (!string.IsNullOrEmpty(HIDDEN_LABEL_selectedCustomerID.Text))
                 {
-
                     throw new Exception("A customer profile is loaded! Must cancel to re-select");
                 }
                 else
@@ -112,8 +111,10 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 }
                 else
                 {
+
                     RentalController mgr = new RentalController();
                     mgr.deleteRental(int.Parse(selectedCustomerRental.Text));
+                    RentalEquipmentListview.DataBind();
                     clearUserControls();
                 }
             }, "Deleted Rental Order", "Order has beem successfully deleted.");
@@ -208,6 +209,12 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             selectedCustomerAddress.Text = "";
             selectedCustomerCity.Text = "";
             creditcardinput.Text = "";
+
+            PhoneNumberInput.Enabled = true;
+            PhoneNumberInput.ForeColor = System.Drawing.Color.Empty;
+
+            phoneNumberSubmitBtn.Enabled = true;
+            phoneNumberSubmitBtn.ForeColor = System.Drawing.Color.Empty;
 
             //no real need
             //RentalEquipmentListview.DataBind();
