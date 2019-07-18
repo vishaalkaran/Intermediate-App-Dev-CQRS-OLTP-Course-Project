@@ -55,7 +55,7 @@
               <div class="col-sm-3">
                   <div class="row">
                      <asp:TextBox ID="PhoneNumberInput" runat="server"></asp:TextBox>
-                     <asp:LinkButton ID="phoneNumberSubmitBtn" runat="server">Search</asp:LinkButton>
+                     <asp:LinkButton ID="phoneNumberSubmitBtn" onclick="searchPhoneNumber_Click" runat="server">Search</asp:LinkButton>
                   </div>
                   <div class="row">
                      <br/>

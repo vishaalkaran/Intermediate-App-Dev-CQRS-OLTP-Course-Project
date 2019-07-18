@@ -79,11 +79,8 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     PhoneNumberInput.Enabled = false;
                     PhoneNumberInput.ForeColor = System.Drawing.Color.LightGray;
 
-
                     phoneNumberSubmitBtn.Enabled = false;
                     phoneNumberSubmitBtn.ForeColor = System.Drawing.Color.LightGray;
-
-
                 }
             }, "Customer Found", "Profile has been successfully retrived.");
         }
@@ -97,9 +94,17 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
         }
 
         //Possible Validation
-        //protected void createRental_Click(object sender, EventArgs e)
-        //{
-        //}
+        protected void searchPhoneNumber_Click(object sender, EventArgs e)
+        {
+            MessageUserControl.TryRun(() =>
+            {
+                if (string.IsNullOrEmpty(PhoneNumberInput.Text))
+                {
+                    throw new Exception("Enter customers phone number please");
+                }
+                //else if() regex format validation
+            }, "Select a customer", "select the correspoding customer from list please");
+        }
 
         protected void deleteRental_Click(object sender, EventArgs e)
         {
