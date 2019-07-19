@@ -40,6 +40,10 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 //    GetUserName();
                 //}
             }
+
+            //Testing
+            testingOnly();
+
         }//eom
 
         protected void newReturn_Click(object sender, EventArgs e)
@@ -68,7 +72,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
         {
             MessageUserControl.TryRun(() =>
             {
-               if (!phoneNumberSubmitBtn.Enabled)
+                if (!phoneNumberSubmitBtn.Enabled)
                 //if (!string.IsNullOrEmpty(selectedCustomerRental.Text))
                 {
                     throw new Exception("A customer profile is loaded! Must cancel to re-select");
@@ -122,7 +126,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     //No need as the if above checks if profile is loaded 
                     //selectedCustomerBtn
 
-                   newReturn.Visible = true;
+                    newReturn.Visible = true;
                 }
             }, "Customer Found", "Profile has been successfully retrived. Must select New Return Button to Load New Profile");
         }
@@ -147,6 +151,52 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
 
         protected void ReturnListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void testingOnly()
+        {
+            MessageUserControl.TryRun(() =>
+            {
+                //test case
+                int testRentalId = 235;
+                RentalCustomerController mgr = new RentalCustomerController();
+                Customer customer = mgr.selectSingleCustomer(testRentalId);
+
+                //customer = mgr.customersReturnLookUp
+
+                selectedCustomerRental.Text = testRentalId.ToString();
+                HIDDEN_LABEL_selectedCustomerID.Text = customer.CustomerID.ToString();
+                PhoneNumberInput.Text = customer.ContactPhone;
+                selectedCustomerName.Text = customer.LastName + ", " + customer.FirstName;
+                selectedCustomerAddress.Text = customer.Address;
+                selectedCustomerCity.Text = customer.City;
+
+
+                RentalDetailController RDCmgr = new RentalDetailController();
+                auxReturnInfo info = RDCmgr.getauxeturnInfo(testRentalId);
+
+                //RentalDetails
+                DateOut.Text = info.dateout.ToString();
+                CreditCard.Text = info.creditcard;
+                Subtotal.Text = info.subtotal.ToString();
+                GST.Text = info.gst.ToString();
+                Discount.Text = info.discount.ToString();
+                Total.Text = info.total.ToString();
+
+                PhoneNumberInput.Enabled = false;
+                PhoneNumberInput.ForeColor = System.Drawing.Color.LightGray;
+
+                //Button as Input
+                phoneNumberSubmitBtn.Enabled = false;
+                phoneNumberSubmitBtn.ForeColor = System.Drawing.Color.LightGray;
+
+                //No need as the if above checks if profile is loaded 
+                //selectedCustomerBtn
+
+                newReturn.Visible = true;
+            }, "Customer Found", "Profile has been successfully retrived. Must select New Return Button to Load New Profile");
+
 
         }
     }
