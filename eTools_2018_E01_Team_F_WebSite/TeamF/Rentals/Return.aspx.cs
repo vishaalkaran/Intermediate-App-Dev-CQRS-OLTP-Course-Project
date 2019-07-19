@@ -144,5 +144,10 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 EmployeeNameLB.Text = info.FullName;
             });
         }//eom
+
+        protected void ReturnListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

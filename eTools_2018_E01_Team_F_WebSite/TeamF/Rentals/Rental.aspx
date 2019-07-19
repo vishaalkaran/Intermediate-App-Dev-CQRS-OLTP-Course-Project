@@ -175,7 +175,7 @@
         <div class="row">
              <%--Available Rental Equipment Listview--%>
             <div class="col-lg-6">
-                <asp:ListView ID="RentalEquipmentListview" runat="server" DataSourceID="EquipmentDataSource" OnItemCommand="addRentalEquipment_Click">
+                <asp:ListView ID="RentalEquipmentListview" runat="server" DataSourceID="EquipmentDataSource" OnItemCommand="addRentalEquipment_Click" OnSelectedIndexChanged="RentalEquipmentListview_SelectedIndexChanged">
                     <EmptyDataTemplate>
                         <table runat="server" style="">
                             <tr>

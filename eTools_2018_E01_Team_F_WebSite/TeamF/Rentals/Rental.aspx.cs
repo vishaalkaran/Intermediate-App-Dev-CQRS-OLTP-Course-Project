@@ -246,5 +246,9 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             });
         }//eom
 
+        protected void RentalEquipmentListview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
