@@ -37,9 +37,10 @@
             <asp:Label ID="HIDDEN_LABEL_selectedCustomerID" runat="server" Visible="false"></asp:Label>
         </div>
         <br/><br/>
+        
         <%--Phone number/ customer slection row--%>
         <div class="row">
-      
+   
               <div class="col-sm-2">
                 <div class="row">
                     <asp:Label ID="Label3" runat="server" Text="Phone Number:" style="text-align: right;"></asp:Label>
@@ -64,6 +65,7 @@
                     <br/>
                   </div>  
               </div>
+
 
               <div class="col-sm-7">
                   <div class="row">
@@ -92,7 +94,7 @@
                               <table runat="server">
                                   <tr runat="server">
                                       <td runat="server">
-                                          <table runat="server" id="itemPlaceholderContainer" style="" border="0">
+                                          <table runat="server" id="itemPlaceholderContainer" style="" border="0"  >
                                               <tr runat="server" style="">
                                                   <th runat="server"></th>
                                                   <th runat="server">ID</th>                                             
@@ -114,41 +116,35 @@
               </div>
         </div>
 
+        <br/><br/>
         <div class="row">
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
                 <div class="row">
-                    <asp:Label ID="Label5" runat="server" Text="Credit Card:" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;
+                    <asp:Label ID="Label5" runat="server" Text="Credit Card:" Style="text-align: right;"></asp:Label>
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="row">
-                    <asp:Label ID="CreditCard" runat="server" Text="1000-1000-1000-1000" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="CreditCard" runat="server" Style="text-align: right;"></asp:Label>
                 </div>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
                 <div class="row">
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+                    <asp:Label ID="Labe1" runat="server" Text="Payment:" Style="text-align: right;"></asp:Label>
+                </div>
+            </div>
 
+            <div class="col-sm-5">
+                <div class="row">  
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatLayout="Table" RepeatColumns="3"
+                        Width="100%">
                         <asp:ListItem Value="C">Credit</asp:ListItem>
                         <asp:ListItem Value="D">Debit</asp:ListItem>
                         <asp:ListItem Value="M">Cash</asp:ListItem>
-                    </asp:RadioButtonList>
-                    <asp:Label ID="Label1" runat="server" Text="Cash" Style="text-align: left;"></asp:Label>
-                </div>
-            </div>
-
-            <div class="col-sm-1">
-                <div class="row">
-                    <asp:Label ID="Label2" runat="server" Text="Debit" Style="text-align: left;"></asp:Label>
-                </div>
-            </div>
-
-            <div class="col-sm-1">
-                <div class="row">
-                    <asp:Label ID="Label4" runat="server" Text="Credit" Style="text-align: left;"></asp:Label>
+                    </asp:RadioButtonList>                
                 </div>
             </div>
 
@@ -165,7 +161,7 @@
 
             <div class="col-sm-4">
                 <div class="row">                   
-                    <asp:Label ID="DateOut" runat="server" Text="1000-1000-1000-1000" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="DateOut" runat="server" Style="text-align: right;"></asp:Label>
                 </div>
             </div>
 
@@ -182,12 +178,10 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-8">
+            <div class="container-fluid"">
                 <br />
                 <br />
-                <asp:ListView ID="ReturnListView" runat="server" DataSourceID="ReturnObjectDataSource" HorizontalOptions="Center">
+                <asp:ListView ID="ReturnListView" runat="server" DataSourceID="ReturnObjectDataSource" HorizontalOptions="center" OnSelectedIndexChanged="ReturnListView_SelectedIndexChanged">
                     <EmptyDataTemplate>
                         <table runat="server" style="">
                             <tr>
