@@ -195,9 +195,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 //selectedCustomerBtn
 
                 newReturn.Visible = true;
-            }, "Customer Found", "Profile has been successfully retrived. Must select New Return Button to Load New Profile");
-
-
+            }, "Testing Error", "Testing related error");
         }
     }
 }
