@@ -34,7 +34,7 @@
         <%-- OrderID--%>
         <div class="row">
             <asp:Label runat="server" ID="Label6" Text="RentalID:" />&nbsp;&nbsp;
-            <asp:Label ID="selectedCustomerRental" runat="server" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="selectedCustomerRental" runat="server" Style="text-align:  left;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="newReturn" runat="server" Visible="false" OnClick="newReturn_Click">New Return</asp:LinkButton>
 
             <%--This is hidden, internal use--%>
@@ -48,12 +48,12 @@
 
             <div class="col-sm-2">
                 <div class="row">
-                    <asp:Label ID="Label3" runat="server" Text="Phone Number:" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Phone Number:" Style="text-align:  left;"></asp:Label>
                 </div>
 
                 <div class="row">
                     <br />
-                    <asp:Label ID="Label7" runat="server" Text="Profile:" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="Profile:" Style="text-align:  left;"></asp:Label>
                 </div>
             </div>
 
@@ -64,9 +64,9 @@
                 </div>
                 <div class="row">
                     <br />
-                    <asp:Label ID="selectedCustomerName" runat="server" Style="text-align: right;"></asp:Label><br />
-                    <asp:Label ID="selectedCustomerAddress" runat="server" Style="text-align: right;"></asp:Label><br />
-                    <asp:Label ID="selectedCustomerCity" runat="server" Style="text-align: right;"></asp:Label><br />
+                    <asp:Label ID="selectedCustomerName" runat="server" Style="text-align:  left;"></asp:Label><br />
+                    <asp:Label ID="selectedCustomerAddress" runat="server" Style="text-align:  left;"></asp:Label><br />
+                    <asp:Label ID="selectedCustomerCity" runat="server" Style="text-align:  left;"></asp:Label><br />
                     <br />
                 </div>
             </div>
@@ -133,26 +133,26 @@
 
             <div class="col-sm-2">
                 <div class="row">
-                    <asp:Label ID="Label5" runat="server" Text="Credit Card:" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text="Credit Card:" Style="text-align:  left;"></asp:Label>
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="row">
-                    <asp:Label ID="CreditCard" runat="server" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="CreditCard" runat="server" Style="text-align:  left;"></asp:Label>
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-1">
                 <div class="row">
-                    <asp:Label ID="Labe1" runat="server" Text="Payment:" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="Labe1" runat="server" Text="Payment:" Style="text-align:  left;"></asp:Label>
                 </div>
             </div>
 
             <div class="col-sm-5">
                 <div class="row">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatLayout="Table" RepeatColumns="3"
-                        Width="100%">
+                        Width="70%">
                         <asp:ListItem Value="C">Credit</asp:ListItem>
                         <asp:ListItem Value="D">Debit</asp:ListItem>
                         <asp:ListItem Value="M">Cash</asp:ListItem>
@@ -165,28 +165,23 @@
         <br />
         <br />
         <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-2">
                 <div class="row">
-                    <asp:Label ID="Label8" runat="server" Text="Date Out:" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;
+                    <asp:Label ID="Label8" runat="server" Text="Date Out:" Style="text-align:  left;"></asp:Label>&nbsp;&nbsp;
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="row">
-                    <asp:Label ID="DateOut" runat="server" Style="text-align: right;"></asp:Label>
+                    <asp:Label ID="DateOut" runat="server" Style="text-align:  left;"></asp:Label>
                 </div>
             </div>
 
-            <div class="col-sm-1">
-                <asp:LinkButton ID="ReturnBtn" runat="server">Process</asp:LinkButton>
+            <div class="col-sm-6">
+                <div class="row">
+                    <asp:LinkButton ID="ReturnBtn" runat="server" style="justify-content:flex-start">Process</asp:LinkButton>
+                </div>
             </div>
-
-            <div class="col-sm-1">
-            </div>
-
-            <div class="col-sm-1">
-            </div>
-
         </div>
 
         <div class="row">
@@ -256,17 +251,17 @@
         </div>
 
         <div class="row">
-            <asp:Label ID="Label9" runat="server" Text="Subtotal:" Style="text-align: right;"></asp:Label>&nbsp;
-            <asp:Label ID="Subtotal" runat="server" Text="" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;
+            <asp:Label ID="Label9" runat="server" Text="Subtotal:" Style="text-align:  left;"></asp:Label>&nbsp;
+            <asp:Label ID="Subtotal" runat="server" Text="" Style="text-align:  left;"></asp:Label>&nbsp;&nbsp;
            
-            <asp:Label ID="Label10" runat="server" Text="GST:" Style="text-align: right;"></asp:Label>&nbsp;
-            <asp:Label ID="GST" runat="server" Text="" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;
+            <asp:Label ID="Label10" runat="server" Text="GST:" Style="text-align:  left;"></asp:Label>&nbsp;
+            <asp:Label ID="GST" runat="server" Text="" Style="text-align:  left;"></asp:Label>&nbsp;&nbsp;
             
-            <asp:Label ID="Label11" runat="server" Text="Discount:" Style="text-align: right;"></asp:Label>&nbsp;
-            <asp:Label ID="Discount" runat="server" Text="" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;
+            <asp:Label ID="Label11" runat="server" Text="Discount:" Style="text-align:  left;"></asp:Label>&nbsp;
+            <asp:Label ID="Discount" runat="server" Text="" Style="text-align:  left;"></asp:Label>&nbsp;&nbsp;
 
-            <asp:Label ID="Label12" runat="server" Text="Total:" Style="text-align: right;"></asp:Label>&nbsp;
-            <asp:Label ID="Total" runat="server" Text="" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;
+            <asp:Label ID="Label12" runat="server" Text="Total:" Style="text-align:  left;"></asp:Label>&nbsp;
+            <asp:Label ID="Total" runat="server" Text="" Style="text-align:  left;"></asp:Label>&nbsp;&nbsp;
         </div>
 
     </div>
