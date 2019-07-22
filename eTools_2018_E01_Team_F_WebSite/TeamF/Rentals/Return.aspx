@@ -10,17 +10,21 @@
     </div>
 
     <div>
-        <asp:Label ID="UserNameLB" runat="server" Text ="User Name">
-        </asp:Label> &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="UserNameLB" runat="server" Text="User Name">
+        </asp:Label>
+        &nbsp;&nbsp;&nbsp;
 
-        <asp:Label ID="UserDisplayNameLB" runat="server" Text ="">
-        </asp:Label> &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="UserDisplayNameLB" runat="server" Text="">
+        </asp:Label>
+        &nbsp;&nbsp;&nbsp;
 
-        <asp:Label ID="EmployeeIDLB" runat="server" Text ="">
-        </asp:Label> &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="EmployeeIDLB" runat="server" Text="">
+        </asp:Label>
+        &nbsp;&nbsp;&nbsp;
 
-        <asp:Label ID="EmployeeNameLB" runat="server" Text ="">
-        </asp:Label> &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="EmployeeNameLB" runat="server" Text="">
+        </asp:Label>
+        &nbsp;&nbsp;&nbsp;
     </div>
 
     <%--Just dragged MessageUserControl.ascx on to this web form--%>
@@ -28,95 +32,103 @@
 
     <div class="container">
         <%-- OrderID--%>
-         <div class="row">
-            <asp:Label runat="server" ID="Label6" Text="RentalID:"/>&nbsp;&nbsp;
-            <asp:Label ID="selectedCustomerRental" runat="server" style="text-align: right;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="newReturn" runat="server" visible="false" OnClick="newReturn_Click">New Return</asp:LinkButton>
-            
+        <div class="row">
+            <asp:Label runat="server" ID="Label6" Text="RentalID:" />&nbsp;&nbsp;
+            <asp:Label ID="selectedCustomerRental" runat="server" Style="text-align: right;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:LinkButton ID="newReturn" runat="server" Visible="false" OnClick="newReturn_Click">New Return</asp:LinkButton>
+
             <%--This is hidden, internal use--%>
             <asp:Label ID="HIDDEN_LABEL_selectedCustomerID" runat="server" Visible="false"></asp:Label>
         </div>
-        <br/><br/>
-        
+        <br />
+        <br />
+
         <%--Phone number/ customer slection row--%>
         <div class="row">
-   
-              <div class="col-sm-2">
+
+            <div class="col-sm-2">
                 <div class="row">
-                    <asp:Label ID="Label3" runat="server" Text="Phone Number:" style="text-align: right;"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Phone Number:" Style="text-align: right;"></asp:Label>
                 </div>
 
                 <div class="row">
-                     <br/>
-                    <asp:Label ID="Label7" runat="server" Text="Profile:" style="text-align: right;"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label7" runat="server" Text="Profile:" Style="text-align: right;"></asp:Label>
                 </div>
-              </div>
+            </div>
 
-              <div class="col-sm-3">
-                  <div class="row">
-                     <asp:TextBox ID="PhoneNumberInput" runat="server"></asp:TextBox>
-                     <asp:LinkButton ID="phoneNumberSubmitBtn" runat="server">Search</asp:LinkButton>
-                  </div>
-                  <div class="row">
-                     <br/>
-                    <asp:Label ID="selectedCustomerName"      runat="server" style="text-align: right;"></asp:Label><br/>
-                    <asp:Label ID="selectedCustomerAddress"   runat="server" style="text-align: right;"></asp:Label><br/>
-                    <asp:Label ID="selectedCustomerCity"      runat="server" style="text-align: right;"></asp:Label><br/>
-                    <br/>
-                  </div>  
-              </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <asp:TextBox ID="PhoneNumberInput" runat="server"></asp:TextBox>
+                    <asp:LinkButton ID="phoneNumberSubmitBtn" runat="server">Search</asp:LinkButton>
+                </div>
+                <div class="row">
+                    <br />
+                    <asp:Label ID="selectedCustomerName" runat="server" Style="text-align: right;"></asp:Label><br />
+                    <asp:Label ID="selectedCustomerAddress" runat="server" Style="text-align: right;"></asp:Label><br />
+                    <asp:Label ID="selectedCustomerCity" runat="server" Style="text-align: right;"></asp:Label><br />
+                    <br />
+                </div>
+            </div>
 
 
-              <div class="col-sm-7">
-                  <div class="row">
-                      <asp:ListView ID="customerLookup" runat="server" DataSourceID="CustomerReturnDataSource" OnItemCommand="selectCustomer_Click">
-                          <EmptyDataTemplate>
-                              <table runat="server" style="">
-                                  <tr>
-                                      <td>No data was returned.</td>
-                                  </tr>
-                              </table>
-                          </EmptyDataTemplate>
-                          <ItemTemplate>
-                              <tr style="">
-                                  <td><asp:LinkButton ID="selectedCustomerBtn" runat="server"
+            <div class="col-sm-6">
+                <div class="row">
+                    <asp:ListView ID="customerLookup" runat="server" DataSourceID="CustomerReturnDataSource" OnItemCommand="selectCustomer_Click">
+                        <EmptyDataTemplate>
+                            <table runat="server" style="">
+                                <tr>
+                                    <td>No data was returned.</td>
+                                </tr>
+                            </table>
+                        </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <tr style="">
+                                <td>
+                                    <asp:LinkButton ID="selectedCustomerBtn" runat="server"
                                         CssClass="btn" CommandArgument='<%# Eval("rentalid") %>'>
                                         <span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>
-                                      </asp:LinkButton> </td>
+                                    </asp:LinkButton>
+                                </td>
 
-                                  <td><asp:Label Text='<%# Eval("rentalid") %>' runat="server" ID="rentalidLabel" />&nbsp;&nbsp;</td>
-                                  <td><asp:Label Text='<%# Eval("fullname") %>' runat="server" ID="fullnameLabel" />&nbsp;&nbsp;</td>
-                                  <td><asp:Label Text='<%# Eval("address") %>' runat="server" ID="addressLabel" />&nbsp;&nbsp;</td>
-                                  <td><asp:Label Text='<%# Eval("mmddyy") %>' runat="server" ID="mmddyyLabel" />&nbsp;&nbsp;</td>
-                              </tr>
-                          </ItemTemplate>
-                          <LayoutTemplate>
-                              <table runat="server">
-                                  <tr runat="server">
-                                      <td runat="server">
-                                          <table runat="server" id="itemPlaceholderContainer" style="" border="0"  >
-                                              <tr runat="server" style="">
-                                                  <th runat="server"></th>
-                                                  <th runat="server">ID</th>                                             
-                                                  <th runat="server">Name</th>
-                                                  <th runat="server">Address</th>
-                                                  <th runat="server">Date</th>
-                                              </tr>
-                                              <tr runat="server" id="itemPlaceholder"></tr>
-                                          </table>
-                                      </td>
-                                  </tr>
-                                  <tr runat="server">
-                                      <td runat="server" style=""></td>
-                                  </tr>
-                              </table>
-                          </LayoutTemplate>
-                      </asp:ListView>
-                  </div>
-              </div>
+                                <td>
+                                    <asp:Label Text='<%# Eval("rentalid") %>' runat="server" ID="rentalidLabel" />&nbsp;&nbsp;</td>
+                                <td>
+                                    <asp:Label Text='<%# Eval("fullname") %>' runat="server" ID="fullnameLabel" />&nbsp;&nbsp;</td>
+                                <td>
+                                    <asp:Label Text='<%# Eval("address") %>' runat="server" ID="addressLabel" />&nbsp;&nbsp;</td>
+                                <td>
+                                    <asp:Label Text='<%# Eval("mmddyy") %>' runat="server" ID="mmddyyLabel" />&nbsp;&nbsp;</td>
+                            </tr>
+                        </ItemTemplate>
+                        <LayoutTemplate>
+                            <table runat="server">
+                                <tr runat="server">
+                                    <td runat="server">
+                                        <table runat="server" id="itemPlaceholderContainer" style="" border="0">
+                                            <tr runat="server" style="">
+                                                <th runat="server"></th>
+                                                <th runat="server">ID</th>
+                                                <th runat="server">Name</th>
+                                                <th runat="server">Address</th>
+                                                <th runat="server">Date</th>
+                                            </tr>
+                                            <tr runat="server" id="itemPlaceholder"></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr runat="server">
+                                    <td runat="server" style=""></td>
+                                </tr>
+                            </table>
+                        </LayoutTemplate>
+                    </asp:ListView>
+                </div>
+            </div>
         </div>
 
-        <br/><br/>
+        <br />
+        <br />
         <div class="row">
 
             <div class="col-sm-2">
@@ -138,13 +150,13 @@
             </div>
 
             <div class="col-sm-5">
-                <div class="row">  
+                <div class="row">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatLayout="Table" RepeatColumns="3"
                         Width="100%">
                         <asp:ListItem Value="C">Credit</asp:ListItem>
                         <asp:ListItem Value="D">Debit</asp:ListItem>
                         <asp:ListItem Value="M">Cash</asp:ListItem>
-                    </asp:RadioButtonList>                
+                    </asp:RadioButtonList>
                 </div>
             </div>
 
@@ -160,13 +172,13 @@
             </div>
 
             <div class="col-sm-4">
-                <div class="row">                   
+                <div class="row">
                     <asp:Label ID="DateOut" runat="server" Style="text-align: right;"></asp:Label>
                 </div>
             </div>
 
             <div class="col-sm-1">
-                 <asp:LinkButton ID="ReturnBtn" runat="server">Process</asp:LinkButton>
+                <asp:LinkButton ID="ReturnBtn" runat="server">Process</asp:LinkButton>
             </div>
 
             <div class="col-sm-1">
@@ -178,7 +190,7 @@
         </div>
 
         <div class="row">
-            <div class="container-fluid"">
+            <div class="container-fluid">
                 <br />
                 <br />
                 <asp:ListView ID="ReturnListView" runat="server" DataSourceID="ReturnObjectDataSource" HorizontalOptions="center" OnSelectedIndexChanged="ReturnListView_SelectedIndexChanged">

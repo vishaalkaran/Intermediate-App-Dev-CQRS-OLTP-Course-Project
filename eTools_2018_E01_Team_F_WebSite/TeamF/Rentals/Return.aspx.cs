@@ -143,7 +143,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 //connection string to applicationusermanager
                 ApplicationUserManager secmgr = new ApplicationUserManager(
                     new UserStore<ApplicationUser>(new ApplicationDbContext()));
-                EmployeeInfo info = secmgr.User_GetEmployee(username);
+                EmployeeInfo info = secmgr.User_GetEmployee(username); 
                 EmployeeIDLB.Text = info.EmployeeID.ToString();
                 EmployeeNameLB.Text = info.FullName;
             });
