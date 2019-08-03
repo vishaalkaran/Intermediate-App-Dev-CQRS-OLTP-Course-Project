@@ -177,15 +177,22 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
+                <div class="row">
+                    <asp:Label ID="DaysOut" runat="server" Style="text-align:  left;">Days:</asp:Label>
+                    <asp:TextBox ID="DaysOutInput" TextMode="Number" runat="server" min="0.5" max="10000" step="0.5"></asp:TextBox>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
                 <div class="row">
                     <asp:LinkButton ID="ReturnBtn" runat="server" style="justify-content:flex-start" OnClick="processReturn_Click">Process</asp:LinkButton>
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="row">
-                    <asp:LinkButton ID="PayBtn" runat="server" style="justify-content:flex-start" OnClick="payReturn_Click" >Pay</asp:LinkButton>
+                    <asp:LinkButton ID="PayBtn" runat="server" style="justify-content:flex-start" OnClick="payReturn_Click">Pay</asp:LinkButton>
                 </div>
             </div>
         </div>
