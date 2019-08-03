@@ -177,9 +177,15 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <div class="row">
-                    <asp:LinkButton ID="ReturnBtn" runat="server" style="justify-content:flex-start">Process</asp:LinkButton>
+                    <asp:LinkButton ID="ReturnBtn" runat="server" style="justify-content:flex-start" OnClick="processReturn_Click">Process</asp:LinkButton>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="row">
+                    <asp:LinkButton ID="PayBtn" runat="server" style="justify-content:flex-start" OnClick="payReturn_Click" >Pay</asp:LinkButton>
                 </div>
             </div>
         </div>

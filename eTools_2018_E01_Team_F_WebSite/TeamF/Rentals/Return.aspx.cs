@@ -68,6 +68,24 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             }, "Create New Rental", "New Rental Can Be Created Now.");
         }
 
+        protected void payReturn_Click(object sender, EventArgs e)
+        {
+            MessageUserControl.TryRun(() =>
+            {
+
+
+            }, "Rental invoice has been paid", "Invoice has been saved to database");
+        }
+
+        protected void processReturn_Click(object sender, EventArgs e)
+        {
+            MessageUserControl.TryRun(() =>
+            {
+                
+
+            }, "Rented equipment has been return", "Returned equipment can be rented out now");
+        }
+
         protected void selectCustomer_Click(object sender, ListViewCommandEventArgs e)
         {
             MessageUserControl.TryRun(() =>
@@ -83,13 +101,12 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     Customer customer = mgr.selectSingleCustomer(int.Parse(e.CommandArgument.ToString()));
 
                     //customer = mgr.customersReturnLookUp
-
-                    selectedCustomerRental.Text = e.CommandArgument.ToString();
+                    selectedCustomerRental.Text          = e.CommandArgument.ToString();
                     HIDDEN_LABEL_selectedCustomerID.Text = customer.CustomerID.ToString();
-                    PhoneNumberInput.Text = customer.ContactPhone;
-                    selectedCustomerName.Text = customer.LastName + ", " + customer.FirstName;
-                    selectedCustomerAddress.Text = customer.Address;
-                    selectedCustomerCity.Text = customer.City;
+                    PhoneNumberInput.Text                = customer.ContactPhone;
+                    selectedCustomerName.Text            = customer.LastName + ", " + customer.FirstName;
+                    selectedCustomerAddress.Text         = customer.Address;
+                    selectedCustomerCity.Text            = customer.City;
 
                     //Actually editing database!!!
                     //RentalController RCmgr = new RentalController();
