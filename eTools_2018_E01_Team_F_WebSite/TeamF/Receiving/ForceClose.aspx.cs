@@ -24,18 +24,18 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Receiving
 
             if (!IsPostBack)
             {
-                if (!Request.IsAuthenticated)
-                {
-                    Response.Redirect("~/Account/Login.aspx");
-                }
-                else
-                {
-                    if (!User.IsInRole(SecurityRoles.Recieving))
-                    {
-                        Response.Redirect("~/Account/Login.aspx");
-                    }
+                //if (!Request.IsAuthenticated)
+                //{
+                //    Response.Redirect("~/Account/Login.aspx");
+                //}
+                //else
+                //{
+                //    if (!User.IsInRole(SecurityRoles.Recieving))
+                //    {
+                //        Response.Redirect("~/Account/Login.aspx");
+                //    }
 
-                }
+                //}
             }
 
 

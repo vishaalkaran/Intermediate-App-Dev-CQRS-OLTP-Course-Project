@@ -131,7 +131,7 @@ namespace eToolsSystem.BLL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert, false)]
-        public auxReturnInfo getauxeturnInfo(int rentalid)
+        public auxReturnInfo getauxeturnInfo(int rentalid, double daysOut)
         {
             using (var context = new eToolsContext())
             {
@@ -162,42 +162,34 @@ namespace eToolsSystem.BLL
 
 
                 auxReturnInfo info = context.Rentals
-                                               .Where(x => (x.RentalID == rentalid))
-                                               .Select(
-                                                  x =>
-                                                     new auxReturnInfo()
-                                                     {
-                                                         rentalid = x.RentalID,
-                                                         creditcard = x.CreditCard,
-                                                         dateout = x.RentalDate,
-                                                         subtotal = (double)(context.RentalDetails
-                                                           .Where(xx => (xx.RentalID == x.RentalID))
-                                                           .Select(xx => ((double)(xx.DailyRate) * (double)xx.Days))
-                                                           .Sum()),
+                                            .Where(x => (x.RentalID == rentalid))
+                                            .Select(x =>
+                                                    new auxReturnInfo()
+                                                    {
+                                                        rentalid = x.RentalID,
+                                                        creditcard = x.CreditCard,
+                                                        dateout = x.RentalDate,
 
+                                                        subtotal = context.RentalDetails
+                                                        .Where(xx => (xx.RentalID == x.RentalID))
+                                                        .Select(xx => ((Double)(xx.DailyRate) * daysOut)).Sum(),
 
-                                                         gst = ((context.RentalDetails
-                                                              .Where(xx => (xx.RentalID == x.RentalID))
-                                                              .Select(xx => ((double)(xx.DailyRate) * (double)xx.Days))
-                                                              .Sum() *
-                                                              (double)0.05) ),
+                                                        gst = (context.RentalDetails
+                                                            .Where(xx => (xx.RentalID == x.RentalID))
+                                                            .Select(xx => ((Double)(xx.DailyRate) * daysOut)).Sum() * 0.05),
 
-                                                         discount = (x.CouponID == null) ? (double)0 : (double)(x.Coupon.CouponDiscount),
+                                                        discount = (x.CouponID == null) ? 0 : (Double)(x.Coupon.CouponDiscount),
 
-                                                         total = ((context.RentalDetails
-                                                                 .Where(xx => (xx.RentalID == x.RentalID))
-                                                                 .Select(xx => ((double)(xx.DailyRate) * (double)xx.Days))
-                                                                 .Sum() +
-                                                                    (context.RentalDetails
+                                                        total = ((context.RentalDetails
+                                                         .Where(xx => (xx.RentalID == x.RentalID))
+                                                         .Select(xx => ((Double)(xx.DailyRate) * daysOut))
+                                                         .Sum() + (context.RentalDetails
                                                                        .Where(xx => (xx.RentalID == x.RentalID))
-                                                                       .Select(xx => ((double)(xx.DailyRate) * (double)xx.Days))
-                                                                       .Sum() * (double)0.05)) - ((x.CouponID == null) ? 0 : (double)(x.Coupon.CouponDiscount)))}).FirstOrDefault();
-
+                                                                       .Select(xx => (Double)xx.DailyRate * daysOut)
+                                                                       .Sum() * 0.05)) - ((x.CouponID == null) ? 0 : (Double)(x.Coupon.CouponDiscount)))
+                                                    }).FirstOrDefault();
                 return info;
             }
-
         }
-
-
     }
 }

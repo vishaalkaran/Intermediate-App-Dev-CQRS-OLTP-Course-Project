@@ -112,9 +112,16 @@ namespace eToolsSystem.BLL
                         updatedEquipment.Available = true;
                         context.Entry(updatedEquipment).State = EntityState.Modified;     //Update Equipment ....Available = true; aka returned
 
+                        //DONT NOT DELETE!! 
+                        //RentalDetail deletedRentalDetail = remove._RentalDetailTable;
+                        //context.Entry(deletedRentalDetail).State = EntityState.Deleted;  //Delete RentalDetails
 
-                        RentalDetail deletedRentalDetail = remove._RentalDetailTable;
-                        context.Entry(deletedRentalDetail).State = EntityState.Deleted;  //Delete RentalDetails
+                        //RentalDetail returndRentalDetails = remove._RentalDetailTable;
+                        ////
+                        //returndRentalDetails.Days
+                        //returndRentalDetails.ConditionIn
+                        //returndRentalDetails.Comments
+
                     }
 
                     //Delete Rental   
@@ -180,6 +187,18 @@ namespace eToolsSystem.BLL
 
                 return rental;
             }          
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update, false)]
+        public int Return_Update(int rentalID, int equipmentID)
+        {
+            using (var context = new eToolsContext())
+            {
+                RentalDetail item = context.RentalDetails.Where(x => ((x.RentalID == rentalID) && (x.RentalEquipmentID == equipmentID))).FirstOrDefault();
+
+                context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                return context.SaveChanges();
+            }
         }
     }
 }

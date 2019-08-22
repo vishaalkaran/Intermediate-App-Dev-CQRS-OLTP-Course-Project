@@ -27,18 +27,18 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Purchasing
         {
             if (!IsPostBack)
             {
-                if (!Request.IsAuthenticated)
-                {
-                    Response.Redirect("~/Account/Login.aspx");
-                }
-                else
-                {
-                    if (!User.IsInRole(SecurityRoles.Purchasing))
-                    {
-                        Response.Redirect("~/Account/Login.aspx");
-                    }
+                //if (!Request.IsAuthenticated)
+                //{
+                //    Response.Redirect("~/Account/Login.aspx");
+                //}
+                //else
+                //{
+                //    if (!User.IsInRole(SecurityRoles.Purchasing))
+                //    {
+                //        Response.Redirect("~/Account/Login.aspx");
+                //    }
 
-                }
+                //}
             }
 
 

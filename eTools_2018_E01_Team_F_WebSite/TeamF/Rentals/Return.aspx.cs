@@ -123,7 +123,8 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
 
 
                     RentalDetailController RDCmgr = new RentalDetailController();
-                    auxReturnInfo info = RDCmgr.getauxeturnInfo(int.Parse(e.CommandArgument.ToString()));
+                    //auxReturnInfo info = RDCmgr.getauxeturnInfo(int.Parse(e.CommandArgument.ToString()), Double.Parse(DaysOutInput.Text));
+                    auxReturnInfo info = RDCmgr.getauxeturnInfo(int.Parse(e.CommandArgument.ToString()), 5.5);
 
                     //RentalDetails
                     DateOut.Text = info.dateout.ToString();
@@ -191,7 +192,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
 
 
                 RentalDetailController RDCmgr = new RentalDetailController();
-                auxReturnInfo info = RDCmgr.getauxeturnInfo(testRentalId);
+                auxReturnInfo info = RDCmgr.getauxeturnInfo(testRentalId, 5.5);
 
                 //RentalDetails
                 DateOut.Text = info.dateout.ToString();

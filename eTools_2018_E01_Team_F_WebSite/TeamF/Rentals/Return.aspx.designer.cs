@@ -220,6 +220,24 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals {
         protected global::System.Web.UI.WebControls.Label DateOut;
         
         /// <summary>
+        /// DaysOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DaysOut;
+        
+        /// <summary>
+        /// DaysOutInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DaysOutInput;
+        
+        /// <summary>
         /// ReturnBtn control.
         /// </summary>
         /// <remarks>
@@ -227,6 +245,15 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton ReturnBtn;
+        
+        /// <summary>
+        /// PayBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton PayBtn;
         
         /// <summary>
         /// ReturnListView control.
