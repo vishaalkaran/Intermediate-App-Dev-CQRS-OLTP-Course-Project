@@ -43,7 +43,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
 
             //Testing
             testingOnly();
-
         }//eom
 
         protected void newReturn_Click(object sender, EventArgs e)
@@ -148,6 +147,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 }
             }, "Customer Found", "Profile has been successfully retrived. Must select New Return Button to Load New Profile");
         }
+
         protected void GetUserName()
         {
             //grab the username from security (User)
@@ -169,7 +169,11 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
 
         protected void ReturnListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MessageUserControl.TryRun(() =>
+            {
 
+
+            }, "Update failed", "Cannot update");
         }
 
         private void testingOnly()
@@ -177,7 +181,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             MessageUserControl.TryRun(() =>
             {
                 //test case
-                int testRentalId = 235;
+                int testRentalId = 234;
                 RentalCustomerController mgr = new RentalCustomerController();
                 Customer customer = mgr.selectSingleCustomer(testRentalId);
 
