@@ -81,53 +81,25 @@ namespace eToolsSystem.BLL
                 }
                 else
                 {
+                    var removeList = context.RentalDetails
+                                       .Where(x => (x.RentalID == rentalid))
+                                       .Select(x =>
+                                                    new
+                                                    {
+                                                        RentalDetailTable = x,
+                                                        RentalEquipmentTable = x.RentalEquipment
+                                                    }
+                                               );
 
-                    //Heavy Query!
-                    DELETE_RentalDetailsTable_UPDATE_RentalEquipmentTable removeList = context.Rentals.Where(x => (x.RentalID == rentalid))
-                                                                                                        .Select(x =>
-                                                                                                                new DELETE_RentalDetailsTable_UPDATE_RentalEquipmentTable()
-                                                                                                                {
-                                                                                                                    deleteSet = x.RentalDetails.Select(y =>
-                                                                                                                                                        new SingleEquipmentPairWithRentalDetailDelete()
-                                                                                                                                                        {
-                                                                                                                                                            _RentalDetailTable = y,
-                                                                                                                                                            _RentalEquipmentTable = y.RentalEquipment
-                                                                                                                                                        })
-                                                                                                                }).FirstOrDefault();
-
-                    //The.find(...) returns an entity based on...ID
-
-                    //DTO
-                    foreach (var remove in removeList.deleteSet)
+                    foreach (var remove in removeList)
                     {
-                        //I not sure if this returns or mods anything
-                        //ii._RentalEquipmentTable.Available = true;
+                        remove.RentalEquipmentTable.Available = true;
+                        context.Entry(remove.RentalEquipmentTable).State = EntityState.Modified;
 
-                        //better way... not this, but use above query
-                        // ...== ii._RentalEquipmentTable.RentalEquipmentID)... id the equipment
-                        //RentalEquipment updatedEquipment = context.RentalEquipments
-                        //                                            .Where(x => (x.RentalEquipmentID == ii._RentalEquipmentTable.RentalEquipmentID)).FirstOrDefault();
-
-                        RentalEquipment updatedEquipment = remove._RentalEquipmentTable;
-                        updatedEquipment.Available = true;
-                        context.Entry(updatedEquipment).State = EntityState.Modified;     //Update Equipment ....Available = true; aka returned
-
-                        //DONT NOT DELETE!! 
-                        //RentalDetail deletedRentalDetail = remove._RentalDetailTable;
-                        //context.Entry(deletedRentalDetail).State = EntityState.Deleted;  //Delete RentalDetails
-
-                        //RentalDetail returndRentalDetails = remove._RentalDetailTable;
-                        ////
-                        //returndRentalDetails.Days
-                        //returndRentalDetails.ConditionIn
-                        //returndRentalDetails.Comments
-
+                        context.Entry(remove.RentalDetailTable).State = EntityState.Deleted;
                     }
-
                     //Delete Rental   
                     context.Entry(rental).State = EntityState.Deleted;
-
-
                 }
                 //Commit Transaction
                 context.SaveChanges();

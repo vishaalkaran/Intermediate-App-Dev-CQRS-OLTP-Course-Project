@@ -256,15 +256,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals {
         protected global::System.Web.UI.WebControls.LinkButton PayBtn;
         
         /// <summary>
-        /// ReturnListView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ReturnListView;
-        
-        /// <summary>
         /// Label9 control.
         /// </summary>
         /// <remarks>
