@@ -219,5 +219,10 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 newReturn.Visible = true;
             }, "Testing Error", "Testing related error");
         }
+
+        protected void customerLookup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

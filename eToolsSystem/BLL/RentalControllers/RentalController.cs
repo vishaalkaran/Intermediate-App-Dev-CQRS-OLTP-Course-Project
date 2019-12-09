@@ -93,12 +93,14 @@ namespace eToolsSystem.BLL
 
                     foreach (var remove in removeList)
                     {
+                        //Free equipmwnt
                         remove.RentalEquipmentTable.Available = true;
                         context.Entry(remove.RentalEquipmentTable).State = EntityState.Modified;
 
+                        //Delete rental details/ equipment's parent 
                         context.Entry(remove.RentalDetailTable).State = EntityState.Deleted;
                     }
-                    //Delete Rental   
+                    //Delete Rental/ details parent
                     context.Entry(rental).State = EntityState.Deleted;
                 }
                 //Commit Transaction
@@ -125,20 +127,20 @@ namespace eToolsSystem.BLL
             using (var context = new eToolsContext())
             {
                 var retruns = context.RentalDetails
-                                       .Where(x => ((x.RentalID == rentalid)))
-                                       .Select(
-                                          x =>
-                                             new ReturnForm()
-                                             {
-                                                 eqiupmentID = x.RentalEquipment.RentalEquipmentID,
-                                                 Description = x.RentalEquipment.Description,
-                                                 SerialNumber = x.RentalEquipment.SerialNumber,
-                                                 Rate = x.RentalEquipment.DailyRate,
-                                                 outDate = x.Rental.RentalDate,
-                                                 coditionCommets = "",
-                                                 customerCommets = "",
-                                                 Av = false
-                                             }).ToList();
+                                .Where(x => ((x.RentalID == rentalid) && (x.Rental.SubTotal == 0)))
+                                .Select(x =>
+                                                new ReturnForm
+                                                {
+                                                    ID = x.RentalDetailID,
+                                                    Description = x.RentalEquipment.Description,
+                                                    SerialNumber = x.RentalEquipment.SerialNumber,
+                                                    Rate = x.RentalEquipment.DailyRate,
+                                                    OutDate = x.Rental.RentalDate,
+                                                    CoditionCommets = "",
+                                                    CustomerCommets = "",
+                                                    Av = false
+                                                }
+                                        ).ToList();
                 return retruns;
             }
         }
@@ -162,12 +164,36 @@ namespace eToolsSystem.BLL
         }
 
         [DataObjectMethod(DataObjectMethodType.Update, false)]
-        public int Return_Update(int rentalID, int equipmentID)
+        public int Return_Update(ReturnForm rtn)
         {
             using (var context = new eToolsContext())
             {
-                RentalDetail item = context.RentalDetails.Where(x => ((x.RentalID == rentalID) && (x.RentalEquipmentID == equipmentID))).FirstOrDefault();
+                //RentalDetail item = context.RentalDetails.Where(x => (x.RentalDetailID == rtn.ID)).FirstOrDefault();
+                //RentalDetail item2 = new RentalDetail();
+                //item2 = item;
+                //item2.Comments = rtn.CustomerCommets == null ? "" : rtn.CustomerCommets; //can be null       
+                //item2.ConditionIn = rtn.CoditionCommets == null ? "" : rtn.CoditionCommets;
 
+                RentalDetail rdptr = context.RentalDetails.Where(x => (x.RentalDetailID == rtn.ID)).FirstOrDefault();
+                RentalDetail item = new RentalDetail();
+                if (rdptr == null)
+                {
+                    throw new BusinessRuleException("No such rental exists!", logger);
+                }
+                else
+                {
+                    
+                    item.RentalDetailID = rtn.ID;
+                    item.RentalID = rdptr.RentalID;
+                    item.RentalEquipmentID = rdptr.RentalEquipmentID;
+                    item.Days = rdptr.Days;
+                    item.DailyRate = rdptr.DailyRate;
+                    item.ConditionOut = rdptr.ConditionOut;
+                    item.ConditionIn = string.IsNullOrEmpty(rtn.CoditionCommets) ? "" : rtn.CoditionCommets;
+                    item.DamageRepairCost = rdptr.DamageRepairCost;
+                    item.Comments = string.IsNullOrEmpty(rtn.CustomerCommets) ? "" : rtn.CustomerCommets;
+  
+                }
                 context.Entry(item).State = System.Data.Entity.EntityState.Modified;
                 return context.SaveChanges();
             }

@@ -74,7 +74,7 @@
 
             <div class="col-sm-6">
                 <div class="row">
-                    <asp:ListView ID="customerLookup" runat="server" DataSourceID="CustomerReturnDataSource" OnItemCommand="selectCustomer_Click">
+                    <asp:ListView ID="customerLookup" runat="server" DataSourceID="CustomerReturnDataSource" OnItemCommand="selectCustomer_Click" OnSelectedIndexChanged="customerLookup_SelectedIndexChanged">
                         <EmptyDataTemplate>
                             <table runat="server" style="">
                                 <tr>
@@ -198,11 +198,162 @@
         </div>
 
         <div class="row">
-            <div class="container-fluid">
+            <%--<div class="container-fluid">
                 <br />
-                <br />
-                
-            </div>
+                <br />           
+            </div>--%>
+
+            <asp:ListView ID="RenturnEquipmentListView" runat="server" DataSourceID="ReturnDataSource">
+                <AlternatingItemTemplate>
+                    <tr style="background-color: #FFF8DC;">
+                        <td>
+                            <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
+                        </td>
+                        <td>
+                            <asp:Label Text='<%# Eval("ID") %>' runat="server" ID="IDLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("Description") %>' runat="server" ID="DescriptionLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("SerialNumber") %>' runat="server" ID="SerialNumberLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("Rate") %>' runat="server" ID="RateLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("OutDate") %>' runat="server" ID="OutDateLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("CoditionCommets") %>' runat="server" ID="CoditionCommetsLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("CustomerCommets") %>' runat="server" ID="CustomerCommetsLabel" /></td>
+                        <td>
+                            <asp:CheckBox Checked='<%# Eval("Av") %>' runat="server" ID="AvCheckBox" Enabled="false" /></td>
+                    </tr>
+                </AlternatingItemTemplate>
+                <EditItemTemplate>
+                    <tr style="background-color: #008A8C; color: #FFFFFF;">
+                        <td>
+                            <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" />
+                            <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
+                        </td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("ID") %>' runat="server" ID="IDTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("Description") %>' runat="server" ID="DescriptionTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("SerialNumber") %>' runat="server" ID="SerialNumberTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("Rate") %>' runat="server" ID="RateTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("OutDate") %>' runat="server" ID="OutDateTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("CoditionCommets") %>' runat="server" ID="CoditionCommetsTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("CustomerCommets") %>' runat="server" ID="CustomerCommetsTextBox" /></td>
+                        <td>
+                            <asp:CheckBox Checked='<%# Bind("Av") %>' runat="server" ID="AvCheckBox" /></td>
+                    </tr>
+                </EditItemTemplate>
+                <EmptyDataTemplate>
+                    <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
+                        <tr>
+                            <td>No data was returned.</td>
+                        </tr>
+                    </table>
+                </EmptyDataTemplate>
+                <InsertItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" />
+                            <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
+                        </td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("ID") %>' runat="server" ID="IDTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("Description") %>' runat="server" ID="DescriptionTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("SerialNumber") %>' runat="server" ID="SerialNumberTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("Rate") %>' runat="server" ID="RateTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("OutDate") %>' runat="server" ID="OutDateTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("CoditionCommets") %>' runat="server" ID="CoditionCommetsTextBox" /></td>
+                        <td>
+                            <asp:TextBox Text='<%# Bind("CustomerCommets") %>' runat="server" ID="CustomerCommetsTextBox" /></td>
+                        <td>
+                            <asp:CheckBox Checked='<%# Bind("Av") %>' runat="server" ID="AvCheckBox" /></td>
+                    </tr>
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <tr style="background-color: #DCDCDC; color: #000000;">
+                        <td>
+                            <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
+                        </td>
+                        <td>
+                            <asp:Label Text='<%# Eval("ID") %>' runat="server" ID="IDLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("Description") %>' runat="server" ID="DescriptionLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("SerialNumber") %>' runat="server" ID="SerialNumberLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("Rate") %>' runat="server" ID="RateLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("OutDate") %>' runat="server" ID="OutDateLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("CoditionCommets") %>' runat="server" ID="CoditionCommetsLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("CustomerCommets") %>' runat="server" ID="CustomerCommetsLabel" /></td>
+                        <td>
+                            <asp:CheckBox Checked='<%# Eval("Av") %>' runat="server" ID="AvCheckBox" Enabled="false" /></td>
+                    </tr>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <table runat="server">
+                        <tr runat="server">
+                            <td runat="server">
+                                <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
+                                    <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
+                                        <th runat="server"></th>
+                                        <th runat="server">ID</th>
+                                        <th runat="server">Description</th>
+                                        <th runat="server">SerialNumber</th>
+                                        <th runat="server">Rate</th>
+                                        <th runat="server">OutDate</th>
+                                        <th runat="server">CoditionCommets</th>
+                                        <th runat="server">CustomerCommets</th>
+                                        <th runat="server">Av</th>
+                                    </tr>
+                                    <tr runat="server" id="itemPlaceholder"></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr runat="server">
+                            <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;"></td>
+                        </tr>
+                    </table>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                    <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">
+                        <td>
+                            <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
+                        </td>
+                        <td>
+                            <asp:Label Text='<%# Eval("ID") %>' runat="server" ID="IDLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("Description") %>' runat="server" ID="DescriptionLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("SerialNumber") %>' runat="server" ID="SerialNumberLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("Rate") %>' runat="server" ID="RateLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("OutDate") %>' runat="server" ID="OutDateLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("CoditionCommets") %>' runat="server" ID="CoditionCommetsLabel" /></td>
+                        <td>
+                            <asp:Label Text='<%# Eval("CustomerCommets") %>' runat="server" ID="CustomerCommetsLabel" /></td>
+                        <td>
+                            <asp:CheckBox Checked='<%# Eval("Av") %>' runat="server" ID="AvCheckBox" Enabled="false" /></td>
+                    </tr>
+                </SelectedItemTemplate>
+            </asp:ListView>
         </div>
 
         <div class="row">
@@ -226,14 +377,11 @@
             <asp:ControlParameter ControlID="PhoneNumberInput" PropertyName="Text" Name="clientPhoneNumberOrRentalID" Type="String"></asp:ControlParameter>
         </SelectParameters>
     </asp:ObjectDataSource>
-
-    <asp:ObjectDataSource ID="ReturnObjectDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="returnitemlist" TypeName="eToolsSystem.BLL.RentalController" UpdateMethod="Return_Update">
+    <asp:ObjectDataSource ID="ReturnDataSource" runat="server" DataObjectTypeName="eTools.Data.POCOs.ReturnForm" OldValuesParameterFormatString="original_{0}" SelectMethod="returnitemlist" TypeName="eToolsSystem.BLL.RentalController" UpdateMethod="Return_Update">
         <SelectParameters>
-            <asp:ControlParameter ControlID="selectedCustomerRental" PropertyName="Text" DefaultValue="238" Name="rentalid" Type="Int32"></asp:ControlParameter>
+            <asp:ControlParameter ControlID="selectedCustomerRental" PropertyName="Text" Name="rentalid" Type="Int32"></asp:ControlParameter>
         </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="rentalID" Type="Int32"></asp:Parameter>
-            <asp:Parameter Name="equipmentID" Type="Int32"></asp:Parameter>
-        </UpdateParameters>
     </asp:ObjectDataSource>
+    
 </asp:Content>
+
