@@ -42,7 +42,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             }
 
             //Testing
-            testingOnly();
+            //testingOnly();
         }//eom
 
         protected void newReturn_Click(object sender, EventArgs e)
@@ -89,7 +89,8 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
         {
             MessageUserControl.TryRun(() =>
             {
-                if (!phoneNumberSubmitBtn.Enabled)
+                if (false)
+                //if (!phoneNumberSubmitBtn.Enabled)
                 //if (!string.IsNullOrEmpty(selectedCustomerRental.Text))
                 {
                     throw new Exception("A customer profile is loaded! Must cancel to re-select");
@@ -133,12 +134,12 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     Discount.Text = info.discount.ToString();
                     Total.Text = info.total.ToString();
 
-                    PhoneNumberInput.Enabled = false;
-                    PhoneNumberInput.ForeColor = System.Drawing.Color.LightGray;
+                    //PhoneNumberInput.Enabled = false;
+                    //PhoneNumberInput.ForeColor = System.Drawing.Color.LightGray;
 
-                    //Button as Input
-                    phoneNumberSubmitBtn.Enabled = false;
-                    phoneNumberSubmitBtn.ForeColor = System.Drawing.Color.LightGray;
+                    ////Button as Input
+                    //phoneNumberSubmitBtn.Enabled = false;
+                    //phoneNumberSubmitBtn.ForeColor = System.Drawing.Color.LightGray;
 
                     //No need as the if above checks if profile is loaded 
                     //selectedCustomerBtn

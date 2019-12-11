@@ -14,7 +14,6 @@ using DMIT2018Common.UserControls;
 
 namespace eToolsSystem.BLL
 {
-
     [DataObject]
     public class RentalCustomerController
     {
