@@ -2,7 +2,6 @@
 
 <%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="uc1" TagName="MessageUserControl" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-header">
@@ -91,14 +90,10 @@
                                     </asp:LinkButton>
                                 </td>
 
-                                <td>
-                                    <asp:Label Text='<%# Eval("rentalid") %>' runat="server" ID="rentalidLabel" />&nbsp;&nbsp;</td>
-                                <td>
-                                    <asp:Label Text='<%# Eval("fullname") %>' runat="server" ID="fullnameLabel" />&nbsp;&nbsp;</td>
-                                <td>
-                                    <asp:Label Text='<%# Eval("address") %>' runat="server" ID="addressLabel" />&nbsp;&nbsp;</td>
-                                <td>
-                                    <asp:Label Text='<%# Eval("mmddyy") %>' runat="server" ID="mmddyyLabel" />&nbsp;&nbsp;</td>
+                                <td><asp:Label Text='<%# Eval("rentalid") %>' runat="server" ID="rentalidLabel" />&nbsp;&nbsp;</td>
+                                <td><asp:Label Text='<%# Eval("fullname") %>' runat="server" ID="fullnameLabel" />&nbsp;&nbsp;</td>
+                                <td><asp:Label Text='<%# Eval("address") %>' runat="server" ID="addressLabel" />&nbsp;&nbsp;</td>
+                                <td><asp:Label Text='<%# Eval("mmddyy") %>' runat="server" ID="mmddyyLabel" />&nbsp;&nbsp;</td>
                             </tr>
                         </ItemTemplate>
                         <LayoutTemplate>
@@ -212,21 +207,21 @@
                             <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                         </td>
                         <td>
-                            <asp:TextBox Text='<%# Bind("ID") %>' runat="server" ID="IDTextBox" /></td>
+                            <asp:TextBox Text='<%# Eval("ID") %>' runat="server" ID="IDTextBox" /></td>
                         <td>
-                            <asp:TextBox Text='<%# Bind("Description") %>' runat="server" ID="DescriptionTextBox" /></td>
+                            <asp:TextBox Text='<%# Eval("Description") %>' runat="server" ID="DescriptionTextBox" /></td>
                         <td>
-                            <asp:TextBox Text='<%# Bind("SerialNumber") %>' runat="server" ID="SerialNumberTextBox" /></td>
+                            <asp:TextBox Text='<%# Eval("SerialNumber") %>' runat="server" ID="SerialNumberTextBox" /></td>
                         <td>
-                            <asp:TextBox Text='<%# Bind("Rate") %>' runat="server" ID="RateTextBox" /></td>
+                            <asp:TextBox Text='<%# Eval("Rate") %>' runat="server" ID="RateTextBox" /></td>
                         <td>
-                            <asp:TextBox Text='<%# Bind("OutDate") %>' runat="server" ID="OutDateTextBox" /></td>
+                            <asp:TextBox Text='<%# Eval("OutDate") %>' runat="server" ID="OutDateTextBox" /></td>
                         <td>
                             <asp:TextBox Text='<%# Bind("CoditionCommets") %>' runat="server" ID="CoditionCommetsTextBox" /></td>
                         <td>
                             <asp:TextBox Text='<%# Bind("CustomerCommets") %>' runat="server" ID="CustomerCommetsTextBox" /></td>
                         <td>
-                            <asp:CheckBox Checked='<%# Bind("Av") %>' runat="server" ID="AvCheckBox" /></td>
+                            <asp:CheckBox Checked='<%# Eval("Av") %>' runat="server" ID="AvCheckBox" /></td>
                     </tr>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
@@ -242,7 +237,7 @@
                             <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                         </td>
                         <td>
-                            <asp:Label Text='<%# Eval("ID") %>' runat="server" ID="IDLabel" /></td>
+                            <asp:Label Text='<%# Eval("ID") %>' runat="server" ID="IDLabel" />&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>
                             <asp:Label Text='<%# Eval("Description") %>' runat="server" ID="DescriptionLabel" /></td>
                         <td>
@@ -260,11 +255,11 @@
                     </tr>
                 </ItemTemplate>
                 <LayoutTemplate>
-                    <table runat="server">
+                    <table runat="server" >
                         <tr runat="server">
                             <td runat="server">
                                 <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
-                                    <tr runat="server" style="background-color: #E0FFFF; color: #333333;">
+                                    <tr runat="server" style="background-color: #E0FFFF; color: #333333;" >
                                         <th runat="server"></th>
                                         <th runat="server">ID</th>
                                         <th runat="server">Description</th>

@@ -32,7 +32,7 @@
              <%-- --%>
              <%--asp:Label ID="selectedCustomerRental" runat="server" style="text-align: right;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;--%>
             <asp:Label ID="selectedCustomerRental" runat="server" style="text-align: right;"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="newRental" runat="server" visible="false" OnClick="newRental_Click ">New Rental</asp:LinkButton> &nbsp;
+            <asp:LinkButton ID="newRental" runat="server" visible="true" OnClick="newRental_Click ">New Rental</asp:LinkButton> &nbsp;
            
              <%--This is hidden, internal use--%>
             <asp:Label ID="HIDDEN_LABEL_selectedCustomerID" runat="server" Visible="false"></asp:Label>

@@ -511,7 +511,6 @@
     <Compile Include="TeamF\Sales\CheckOut.aspx.designer.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TestSelenium.cs" />
     <Compile Include="UserControls\MessageUserControl.ascx.cs">
       <DependentUpon>MessageUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

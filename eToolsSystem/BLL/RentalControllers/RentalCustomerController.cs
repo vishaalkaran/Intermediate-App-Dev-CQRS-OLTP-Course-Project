@@ -60,8 +60,16 @@ namespace eToolsSystem.BLL
         {
             using (var context = new eToolsContext())
             {
-                    return context.Rentals.Where(x => (x.RentalID == rentalid)) .Select(x => x.Customer).FirstOrDefault();
+                return context.Rentals.Where(x => (x.RentalID == rentalid)).Select(x => x.Customer).FirstOrDefault();
 
+            }
+        }
+
+        public Customer selectCustomer(int customerid)
+        {
+            using (var context = new eToolsContext())
+            {
+                return context.Customers.Where(x => (x.CustomerID == customerid)).FirstOrDefault();
             }
         }
 
@@ -72,16 +80,31 @@ namespace eToolsSystem.BLL
             using (var context = new eToolsContext())
             {
                 //This method checks id and phone# 
-                List<returnCustomer> lookup = context.Rentals.Where(x => (((x.Customer.ContactPhone == clientPhoneNumberOrRentalID) || (x.RentalID.ToString() == clientPhoneNumberOrRentalID)) 
-                                                                           && (x.SubTotal == 0))).Select(x =>
-                                                                                                         new returnCustomer()
-                                                                                                         {
-                                                                                                             rentalid = x.RentalID,
-                                                                                                             customerid = x.Customer.CustomerID,
-                                                                                                             fullname = ((x.Customer.LastName + ", ") + x.Customer.FirstName),
-                                                                                                             address = x.Customer.Address,
-                                                                                                             mmddyy = x.RentalDate
-                                                                                                         }).ToList();
+                //Allows rentals with >0 rental details table in the renturn customer list
+                List<returnCustomer> lookup = context.Rentals.Where( x =>
+                                                                (((x.Customer.ContactPhone == clientPhoneNumberOrRentalID) ||
+                                                                      (x.RentalID.ToString() == clientPhoneNumberOrRentalID)
+                                                                   ) &&
+                                                                      ((context.RentalDetails
+                                                                            .Where(y => ((y.RentalID == x.RentalID) && (y.RentalEquipment.Available == false)))
+                                                                            .Count() ==
+                                                                            x.RentalDetails.Count()
+                                                                         ) &&
+                                                                         (x.RentalDetails.Count() != 0)
+                                                                      )
+                                                                )
+                                                       )
+                                                       .Select(
+                                                          x =>
+                                                             new returnCustomer()
+                                                             {
+                                                                 rentalid = x.RentalID,
+                                                                 customerid = x.Customer.CustomerID,
+                                                                 fullname = ((x.Customer.LastName + ", ") + x.Customer.FirstName),
+                                                                 address = x.Customer.Address,
+                                                                 mmddyy = x.RentalDate
+                                                             }
+                                                       ).ToList();
                 return lookup;
 
             }

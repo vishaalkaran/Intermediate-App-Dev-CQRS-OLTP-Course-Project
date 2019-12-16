@@ -40,9 +40,8 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 //    GetUserName();
                 //}
             }
-
             //Testing
-            //testingOnly();
+            testingOnly();
         }//eom
 
         protected void newReturn_Click(object sender, EventArgs e)
@@ -98,6 +97,8 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 else
                 {
                     RentalCustomerController mgr = new RentalCustomerController();
+                   
+                    //this makes sense- since select button returns rentalid, selectSingleCustomer args is rentalid
                     Customer customer = mgr.selectSingleCustomer(int.Parse(e.CommandArgument.ToString()));
 
                     //customer = mgr.customersReturnLookUp
@@ -120,7 +121,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     //Discount.Text = rental.Coupon.CouponDiscount.ToString();
                     //Total.Text = (((rental.SubTotal) + (rental.TaxAmount)) - ((decimal)rental.Coupon.CouponDiscount)).ToString();
                     //TextBox as Input
-
 
                     RentalDetailController RDCmgr = new RentalDetailController();
                     //auxReturnInfo info = RDCmgr.getauxeturnInfo(int.Parse(e.CommandArgument.ToString()), Double.Parse(DaysOutInput.Text));

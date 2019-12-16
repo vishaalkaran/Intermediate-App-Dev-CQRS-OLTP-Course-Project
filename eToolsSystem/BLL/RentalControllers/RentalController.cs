@@ -198,6 +198,35 @@ namespace eToolsSystem.BLL
                 return context.SaveChanges();
             }
         }
+
+        public void payRental(int rentalid)
+        {
+            using (var context = new eToolsContext())
+            {
+                List<RentalDetail> pay = context.RentalDetails.Where(x => (x.RentalID == rentalid)).ToList();
+                foreach (var rd in pay)
+                {
+                    rd.Paid = true;
+                    context.Entry(rd).State = EntityState.Modified;
+                }
+                //Commit Transaction
+                context.SaveChanges();
+            }
+        }
+
+        //public void returnRental(int rentalid)
+        //{
+        //    using (var context = new eToolsContext())
+        //    {
+        //        foreach (var in)
+        //        {
+
+        //        }
+        //        //Commit Transaction
+        //        context.SaveChanges();
+        //    }
+
+        //}
     }
 }
 

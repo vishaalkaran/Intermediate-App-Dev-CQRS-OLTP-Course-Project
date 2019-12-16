@@ -69,7 +69,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     Empty string is default for selectedCustomerRental
                     Customer customer = mgr.selectSingleCustomer(int.Parse(selectedCustomerRental.Text));
                     */
-                    Customer customer = mgr.selectSingleCustomer(int.Parse(e.CommandArgument.ToString()));
+                    Customer customer = mgr.selectCustomer(int.Parse(e.CommandArgument.ToString()));
 
                     HIDDEN_LABEL_selectedCustomerID.Text = customer.CustomerID.ToString();
                     selectedCustomerName.Text = customer.LastName + ", " + customer.FirstName;
@@ -116,7 +116,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 }
                 else
                 {
-
                     RentalController mgr = new RentalController();
                     mgr.deleteRental(int.Parse(selectedCustomerRental.Text));
                     RentalEquipmentListview.DataBind();
@@ -124,7 +123,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 }
             }, "Deleted Rental Order", "Order has beem successfully deleted.");
         }
-
         protected void addRentalEquipment_Click(object sender, ListViewCommandEventArgs e)
         {
             MessageUserControl.TryRun(() =>
@@ -169,7 +167,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                     }
 
                     MessageUserControl.ShowInfo("Form Created", "Item added to newly created form");
-                    newRental.Visible = true;
+                    //newRental.Visible = true;
                 }
                 else
                 {
@@ -182,7 +180,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 }
             });
         }
-
         protected void removeRentalEquipment_Click(object sender, ListViewCommandEventArgs e)
         {
             MessageUserControl.TryRun(() =>
@@ -225,7 +222,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
             //RentalEquipmentListview.DataBind();
             CustomerListView.DataBind();
             PendingRentalListView.DataBind();
-            newRental.Visible = false;
+            //newRental.Visible = false;
         }
         protected void GetUserName()
         {
@@ -245,7 +242,6 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 EmployeeNameLB.Text = info.FullName;
             });
         }//eom
-
         protected void RentalEquipmentListview_SelectedIndexChanged(object sender, EventArgs e)
         {
 
