@@ -41,7 +41,7 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
                 //}
             }
             //Testing
-            testingOnly();
+            //testingOnly();
         }//eom
 
         protected void newReturn_Click(object sender, EventArgs e)
@@ -222,6 +222,11 @@ namespace eTools_2018_E01_Team_F_WebSite.TeamF.Rentals
         }
 
         protected void customerLookup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RenturnEquipmentListView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
