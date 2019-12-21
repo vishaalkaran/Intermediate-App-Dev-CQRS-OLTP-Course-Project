@@ -121,26 +121,33 @@ namespace eToolsSystem.BLL
         //}
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<ReturnForm> returnitemlist(int rentalid)
+        //public List<ReturnForm> returnitemlist(int rentalid)
+        public List<RentalEquipment> returnitemlist(int rentalid)
         {
             //&& (x.Rental.PaymentType == "N")
             using (var context = new eToolsContext())
             {
+                //var retruns = context.RentalDetails
+                //                .Where(x => ((x.RentalID == rentalid) && (x.Rental.SubTotal == 0)))
+                //                .Select(x =>
+                //                                new ReturnForm
+                //                                {
+                //                                    ID = x.RentalDetailID,
+                //                                    Description = x.RentalEquipment.Description,
+                //                                    SerialNumber = x.RentalEquipment.SerialNumber,
+                //                                    Rate = x.RentalEquipment.DailyRate,
+                //                                    OutDate = x.Rental.RentalDate,
+                //                                    CoditionCommets = "",
+                //                                    CustomerCommets = "",
+                //                                    Av = false
+                //                                }
+                //                        ).ToList();
+
                 var retruns = context.RentalDetails
-                                .Where(x => ((x.RentalID == rentalid) && (x.Rental.SubTotal == 0)))
-                                .Select(x =>
-                                                new ReturnForm
-                                                {
-                                                    ID = x.RentalDetailID,
-                                                    Description = x.RentalEquipment.Description,
-                                                    SerialNumber = x.RentalEquipment.SerialNumber,
-                                                    Rate = x.RentalEquipment.DailyRate,
-                                                    OutDate = x.Rental.RentalDate,
-                                                    CoditionCommets = "",
-                                                    CustomerCommets = "",
-                                                    Av = false
-                                                }
-                                        ).ToList();
+                               .Where(x => (x.RentalID == rentalid))
+                               .Select(x => x.RentalEquipment).ToList();
+
+
                 return retruns;
             }
         }
@@ -161,6 +168,18 @@ namespace eToolsSystem.BLL
 
                 return rental;
             }          
+        }
+
+
+        [DataObjectMethod(DataObjectMethodType.Update, false)]
+        public int newReturn_Update(RentalEquipment item)
+        {
+            using (var context = new eToolsContext())
+            {
+               
+                context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                return context.SaveChanges();
+            }
         }
 
         [DataObjectMethod(DataObjectMethodType.Update, false)]
