@@ -15,7 +15,7 @@
         <asp:Label ID="UserNameLB" runat="server" Text ="User Name">
         </asp:Label> &nbsp;&nbsp;&nbsp;
 
-        <asp:Label ID="UserDisplayNameLB" runat="server" Text ="">
+        <asp:Label ID="UserDisplayNameLB" runat="server" Text ="">b 
         </asp:Label> &nbsp;&nbsp;&nbsp;
 
         <asp:Label ID="EmployeeIDLB" runat="server" Text ="">
@@ -66,9 +66,9 @@
                   </div>  
               </div>
 
-              <div class="col-sm-7">
-                  <div class="row">
-                      <asp:ListView ID="CustomerListView" runat="server" DataSourceID="CustomerDataSource" OnItemCommand="selectCustomer_Click">               
+              <div class="row">
+                  <div class="col-lg-6">
+                      <asp:ListView ID="CustomerListView" runat="server" DataSourceID="CustomerDataSource" OnItemCommand="selectCustomer_Click">
                           <EmptyDataTemplate>
                               <table runat="server" style="">
                                   <tr>
@@ -78,10 +78,12 @@
                           </EmptyDataTemplate>
                           <ItemTemplate>
                               <tr style="">
-                                  <td><asp:LinkButton ID="selectedCustomer" runat="server"
-                                        CssClass="btn" CommandArgument='<%# Eval("ID") %>'>
-                                        <span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>
-                                      </asp:LinkButton> </td>
+                                  <td>
+                                      <asp:LinkButton ID="selectedCustomer" runat="server"
+                                                      CssClass="btn" CommandArgument='<%# Eval("ID") %>'>
+                                          <span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>
+                                      </asp:LinkButton>
+                                  </td>
 
                                   <td><asp:Label Text='<%# Eval("Fullname") %>' runat="server" ID="FullnameLabel" />&nbsp;&nbsp</td>
                                   <td><asp:Label Text='<%# Eval("Address") %>' runat="server" ID="AddressLabel" />&nbsp;&nbsp</td>
@@ -92,7 +94,7 @@
                               <table runat="server">
                                   <tr runat="server">
                                       <td runat="server">
-                                          <table runat="server" id="itemPlaceholderContainer" style="" border="0">
+                                          <table runat="server" id="itemPlaceholderContainer" style="" border="0" width="640px">
                                               <tr runat="server" style="">
                                                   <th runat="server"></th>
                                                   <th runat="server">Name</th>
@@ -104,14 +106,14 @@
                                       </td>
                                   </tr>
                                   <tr runat="server">
-                                    <td runat="server" style="text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-                                        <asp:DataPager runat="server" ID="DataPager1" PagedControlID="CustomerListView" PageSize="3">
-                                            <Fields>
-                                                <asp:NumericPagerField ButtonType="Link" ></asp:NumericPagerField>  
-                                            </Fields>
-                                        </asp:DataPager>
-                                    </td>
-                                </tr>
+                                      <td runat="server" style="text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
+                                          <asp:DataPager runat="server" ID="DataPager1" PagedControlID="CustomerListView" PageSize="3">
+                                              <Fields>
+                                                  <asp:NumericPagerField ButtonType="Link"></asp:NumericPagerField>
+                                              </Fields>
+                                          </asp:DataPager>
+                                      </td>
+                                  </tr>
                               </table>
                           </LayoutTemplate>
                       </asp:ListView>
@@ -200,7 +202,7 @@
                             <tr runat="server">
                                 <td runat="server">
                                     <table runat="server" id="itemPlaceholderContainer" style="" 
-                                        border="0">
+                                        border="0" width="40px">
                                         <tr runat="server" style="" >
                                             <th runat="server"></th>
                                             <th runat="server">ID</th>
