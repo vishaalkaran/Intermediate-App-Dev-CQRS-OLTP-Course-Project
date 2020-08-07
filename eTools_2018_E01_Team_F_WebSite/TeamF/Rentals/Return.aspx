@@ -214,27 +214,18 @@
                             </tr>
                         </ItemTemplate>
                         <LayoutTemplate>
-                            <table runat="server">
-                                <tr runat="server">
-                                    <td runat="server">
-                                        <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
-                                            <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
-                                                <th runat="server"></th>
-                                                <th runat="server">ID</th>
-                                                <th runat="server">Description</th>
-                                                <th runat="server">Model#</th>
-                                                <th runat="server">Serial#</th>
-                                                <th runat="server">Rate</th>
-                                                <th runat="server">Condition</th>
-                                                <th runat="server">Av</th>
-                                            </tr>
-                                            <tr runat="server" id="itemPlaceholder"></tr>
-                                        </table>
-                                    </td>
+                            <table runat="server" width="100%" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
+                                <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
+                                    <th runat="server"></th>
+                                    <th runat="server">ID</th>
+                                    <th runat="server">Description</th>
+                                    <th runat="server">Model#</th>
+                                    <th runat="server">Serial#</th>
+                                    <th runat="server">Rate</th>
+                                    <th runat="server">Condition</th>
+                                    <th runat="server">Av</th>
                                 </tr>
-                                <tr runat="server">
-                                    <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;"></td>
-                                </tr>
+                                <tr runat="server" id="itemPlaceholder"></tr>
                             </table>
                         </LayoutTemplate>
                     </asp:ListView>
