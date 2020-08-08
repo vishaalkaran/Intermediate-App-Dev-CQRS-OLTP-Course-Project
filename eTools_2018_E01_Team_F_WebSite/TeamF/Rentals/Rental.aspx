@@ -91,21 +91,14 @@
                               </tr>
                           </ItemTemplate>
                           <LayoutTemplate>
-                              <table runat="server">
-                                  <tr runat="server">
-                                      <td runat="server">
-                                          <table runat="server" id="itemPlaceholderContainer" style="" border="0" width="640px">
-                                              <tr runat="server" style="">
-                                                  <th runat="server"></th>
-                                                  <th runat="server">Name</th>
-                                                  <th runat="server">Address</th>
-                                                  <th runat="server">PhoneNumber</th>
-                                              </tr>
-                                              <tr runat="server" id="itemPlaceholder"></tr>
-                                          </table>
-                                      </td>
+                              <table runat="server" width="100%" id="itemPlaceholderContainer" style="" border="0">
+                                  <tr runat="server" style="">
+                                      <th runat="server"></th>
+                                      <th runat="server">Name</th>
+                                      <th runat="server">Address</th>
+                                      <th runat="server">PhoneNumber</th>
                                   </tr>
-                                  <tr runat="server">
+                                  <tr runat="server" id="itemPlaceholder">
                                       <td runat="server" style="text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                           <asp:DataPager runat="server" ID="DataPager1" PagedControlID="CustomerListView" PageSize="3">
                                               <Fields>
@@ -198,27 +191,19 @@
                         </tr>
                     </ItemTemplate>
                     <LayoutTemplate>
-                        <table runat="server">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table runat="server" id="itemPlaceholderContainer" style="" 
-                                        border="0" width="40px">
-                                        <tr runat="server" style="" >
-                                            <th runat="server"></th>
-                                            <th runat="server">ID</th>
-                                            <th runat="server">Description</th>
-                                            <th runat="server">Serial#</th>
-                                            <th runat="server">Rate</th>
-                                        </tr>
-                                        <tr runat="server" id="itemPlaceholder"></tr>
-                                    </table>
-                                </td>
+                        <table runat="server" width="100%" id="itemPlaceholderContainer" style="" border="0">
+                            <tr runat="server" style="">
+                                <th runat="server"></th>
+                                <th runat="server">ID</th>
+                                <th runat="server">Description</th>
+                                <th runat="server">Serial#</th>
+                                <th runat="server">Rate</th>
                             </tr>
-                             <tr runat="server">
+                            <tr runat="server" id="itemPlaceholder">
                                 <td runat="server" style="text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                     <asp:DataPager runat="server" ID="DataPager1" PagedControlID="RentalEquipmentListview" PageSize="10" ShowFirstPageButton="true" ShowLastPageButton="true">
                                         <Fields>
-                                            <asp:NumericPagerField ButtonType="Link" ></asp:NumericPagerField>     
+                                            <asp:NumericPagerField ButtonType="Link"></asp:NumericPagerField>
                                         </Fields>
                                     </asp:DataPager>
                                 </td>
@@ -252,30 +237,23 @@
                         </tr>
                     </ItemTemplate>
                     <LayoutTemplate>
-                        <table runat="server">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table runat="server" id="itemPlaceholderContainer" style="" border="0">
-                                        <tr runat="server" style="">
-                                            <th runat="server"></th>
-                                            <th runat="server">ID</th>
-                                            <th runat="server">Description</th>
-                                            <th runat="server">Serial#</th>
-                                            <th runat="server">Rate</th>
-                                            <th runat="server">Out</th>
-                                        </tr>
-                                        <tr runat="server" id="itemPlaceholder"></tr>
-                                    </table>
-                                </td>
+                        <table runat="server" width="100%" id="itemPlaceholderContainer" style="" border="0">
+                            <tr runat="server" style="">
+                                <th runat="server"></th>
+                                <th runat="server">ID</th>
+                                <th runat="server">Description</th>
+                                <th runat="server">Serial#</th>
+                                <th runat="server">Rate</th>
+                                <th runat="server">Out</th>
                             </tr>
-                            <tr runat="server">
-                            <td runat="server" style="text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-                                <asp:DataPager runat="server" ID="DataPager1" PagedControlID="PendingRentalListView" PageSize="10" ShowFirstPageButton="true" ShowLastPageButton="true">
-                                    <Fields>
-                                        <asp:NumericPagerField ButtonType="Link" ></asp:NumericPagerField>     
-                                    </Fields>
-                                </asp:DataPager>
-                            </td>
+                            <tr runat="server" id="itemPlaceholder">
+                                <td runat="server" style="text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
+                                    <asp:DataPager runat="server" ID="DataPager1" PagedControlID="PendingRentalListView" PageSize="10" ShowFirstPageButton="true" ShowLastPageButton="true">
+                                        <Fields>
+                                            <asp:NumericPagerField ButtonType="Link"></asp:NumericPagerField>
+                                        </Fields>
+                                    </asp:DataPager>
+                                </td>
                             </tr>
                         </table>
                     </LayoutTemplate>

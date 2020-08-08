@@ -90,24 +90,15 @@
                             </tr>
                         </ItemTemplate>
                         <LayoutTemplate>
-                            <table runat="server">
-                                <tr runat="server">
-                                    <td runat="server">
-                                        <table runat="server" id="itemPlaceholderContainer" style="" border="0">
-                                            <tr runat="server" style="">
-                                                <th runat="server"></th>
-                                                <th runat="server">ID</th>
-                                                <th runat="server">Name</th>
-                                                <th runat="server">Address</th>
-                                                <th runat="server">Date</th>
-                                            </tr>
-                                            <tr runat="server" id="itemPlaceholder"></tr>
-                                        </table>
-                                    </td>
+                            <table runat="server" width="100%" id="itemPlaceholderContainer" style="" border="0">
+                                <tr runat="server" style="">
+                                    <th runat="server"></th>
+                                    <th runat="server">ID</th>
+                                    <th runat="server">Name</th>
+                                    <th runat="server">Address</th>
+                                    <th runat="server">Date</th>
                                 </tr>
-                                <tr runat="server">
-                                    <td runat="server" style=""></td>
-                                </tr>
+                                <tr runat="server" id="itemPlaceholder"></tr>
                             </table>
                         </LayoutTemplate>
                     </asp:ListView>
